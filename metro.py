@@ -4,10 +4,10 @@
 """
 from itertools import permutations
 
-jasper = "Sir Raymond Jasper"
-woodley = "Colonel Woodley"
-pope = "Mr. Pope"
-holman = "Mr. Holman"
+sirraymond = "Sir Raymond Jasper"
+colwoodley = "Colonel Woodley"
+mrpope = "Mr. Pope"
+mrholman = "Mr. Holman"
 
 pincenez = "pince-nez"
 watch = "gold pocket watch"
@@ -19,7 +19,7 @@ brown = "brown"
 red = "red"
 grey = "grey"
 
-names = (jasper, woodley, pope, holman)
+names = (sirraymond, colwoodley, mrpope, mrholman)
 rooms = (10, 12, 14, 16)
 corner_rooms = (10, 16)
 hair = (black, brown, red, grey)
@@ -30,13 +30,13 @@ for current_names in permutations(names):
 
     for current_rooms in permutations(rooms):
         # 1. Sir Raymond Jasper occupied Room 10.
-        if current_names.index(jasper) != current_rooms.index(10):
+        if current_names.index(sirraymond) != current_rooms.index(10):
             continue
         # 9. Mr Holman occupied Room 12.
-        if current_names.index(holman) != current_rooms.index(12):
+        if current_names.index(mrholman) != current_rooms.index(12):
             continue
         # 13.  Colonel Woodley occupied a corner room.
-        if current_names.index(woodley) not in (
+        if current_names.index(colwoodley) not in (
                 current_rooms.index(10), current_rooms.index(16)):
             continue
 
@@ -51,17 +51,17 @@ for current_names in permutations(names):
             for current_attire in permutations(attire):
                 # 3. Either Colonel Woodley or Sir Raymond wore a pince-nez.
                 if current_attire.index(pincenez) not in (
-                        current_names.index(woodley),
-                        current_names.index(jasper)):
+                        current_names.index(colwoodley),
+                        current_names.index(sirraymond)):
                     continue
                 # 4. Mr. Pope always carried a gold pocket watch.
-                if current_names.index(pope) != current_attire.index(watch):
+                if current_names.index(mrpope) != current_attire.index(watch):
                     continue
                 # 6. The man with the pince-nez had brown hair.
                 if current_attire.index(pincenez) != current_hair.index(brown):
                     continue
                 # 7. Mr. Holman wore a ruby signet ring.
-                if current_attire.index(ring) != current_names.index(holman):
+                if current_attire.index(ring) != current_names.index(mrholman):
                     continue
                 # 8. The man in Room 16 had tattered cuffs.
                 if current_attire.index(tattered) != current_rooms.index(16):

@@ -19,12 +19,12 @@ mrholman = 2
 mrpope = 3
 sirraymond = 4
 
-jasper = "Sir Raymond Jasper"
-woodley = "Colonel Woodley"
-pope = "Mr. Pope"
-holman = "Mr. Holman"
+SIRRAYMOND = "Sir Raymond Jasper"
+COLWOODLEY = "Colonel Woodley"
+MRPOPE = "Mr. Pope"
+MRHOLMAN = "Mr. Holman"
 
-names = (0, woodley, holman, pope, jasper)
+names = (0, COLWOODLEY, MRHOLMAN, MRPOPE, SIRRAYMOND)
 
 murderer = unknown
 # Pascal arrays begin with 1 so our zero-th element is unused.
