@@ -21,11 +21,13 @@ grey = "grey"
 
 names = (jasper, woodley, pope, holman)
 rooms = (10, 12, 14, 16)
+corner_rooms = (10, 16)
 hair = (black, brown, red, grey)
 attire = (pincenez, watch, tattered, ring)
 
 
 for current_names in permutations(names):
+
     for current_rooms in permutations(rooms):
         # 1. Sir Raymond Jasper occupied Room 10.
         if current_names.index(jasper) != current_rooms.index(10):
@@ -33,6 +35,11 @@ for current_names in permutations(names):
         # 9. Mr Holman occupied Room 12.
         if current_names.index(holman) != current_rooms.index(12):
             continue
+        # 13.  Colonel Woodley occupied a corner room.
+        if current_names.index(woodley) not in (
+                current_rooms.index(10), current_rooms.index(16)):
+            continue
+
         for current_hair in permutations(hair):
             # 2. The man occupying Room 14 had black hair.
             if current_rooms.index(14) != current_hair.index(black):
@@ -40,10 +47,7 @@ for current_names in permutations(names):
             # 11. The man in Room 12 had grey hair.
             if current_rooms.index(12) != current_hair.index(grey):
                 continue
-            # 13.  Colonel Woodley occupied a corner room.
-            if current_names.index(woodley) not in (
-                    current_rooms.index(10), current_rooms.index(16)):
-                continue
+
             for current_attire in permutations(attire):
                 # 3. Either Colonel Woodley or Sir Raymond wore a pince-nez.
                 if current_attire.index(pincenez) not in (
